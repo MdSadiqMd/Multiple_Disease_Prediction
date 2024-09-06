@@ -1,26 +1,33 @@
-import streamlit as st 
-import pickle 
+import streamlit as st
+import pickle
 import os
 from streamlit_option_menu import option_menu
 
-st.set_page_config(page_title="Mulitple Disease Prediction",layout="wide", page_icon="👨‍🦰🤶")
+st.set_page_config(page_title="Multiple Disease Prediction", layout="wide", page_icon="👨‍🦰🤶")
 
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
-diabetes_model = pickle.load(open(f'{working_dir}/saved_models/diabetes.pkl','rb'))
-heart_disease_model = pickle.load(open(f'{working_dir}/saved_models/heart.pkl','rb'))
-kidney_disease_model = pickle.load(open(f'{working_dir}/saved_models/kidney.pkl','rb'))
+try:
+    diabetes_model = pickle.load(open(f'{working_dir}/saved_models/diabetes.pkl', 'rb'))
+    heart_disease_model = pickle.load(open(f'{working_dir}/saved_models/heart.pkl', 'rb'))
+    kidney_disease_model = pickle.load(open(f'{working_dir}/saved_models/kidney.pkl', 'rb'))
+except FileNotFoundError as e:
+    st.error(f"Error loading models: {e}")
+    st.stop()
+except Exception as e:
+    st.error(f"An unexpected error occurred: {e}")
+    st.stop()
 
-NewBMI_Overweight=0
-NewBMI_Underweight=0
-NewBMI_Obesity_1=0
-NewBMI_Obesity_2=0 
-NewBMI_Obesity_3=0
-NewInsulinScore_Normal=0 
-NewGlucose_Low=0
-NewGlucose_Normal=0 
-NewGlucose_Overweight=0
-NewGlucose_Secret=0
+NewBMI_Overweight = 0
+NewBMI_Underweight = 0
+NewBMI_Obesity_1 = 0
+NewBMI_Obesity_2 = 0
+NewBMI_Obesity_3 = 0
+NewInsulinScore_Normal = 0
+NewGlucose_Low = 0
+NewGlucose_Normal = 0
+NewGlucose_Overweight = 0
+NewGlucose_Secret = 0
 
 with st.sidebar:
     selected = option_menu("Mulitple Disease Prediction", 
