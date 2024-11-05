@@ -3,6 +3,7 @@ pickle-mixin==1.0.2
 streamlit-option-menu==0.3.13
 plotly==5.24.1
 pandas==2.2.2
+scikit-learn
 altair
 blinker
 cachetools
