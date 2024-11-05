@@ -1,9 +1,9 @@
-import streamlit as st
+import streamlit as st # type: ignore
 import pickle
 import os
-from streamlit_option_menu import option_menu
-import plotly.graph_objects as go
-import pandas as pd
+from streamlit_option_menu import option_menu # type: ignore
+import plotly.graph_objects as go # type: ignore
+import pandas as pd # type: ignore
 
 # Initialize session state for storing test history
 if 'diabetes_history' not in st.session_state:
