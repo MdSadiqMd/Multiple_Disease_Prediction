@@ -130,13 +130,12 @@ if selected == 'Diabetes Prediction':
             NewGlucose_Secret = 1
 
         # Make prediction
-        user_input = [Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin,
-                     BMI, DiabetesPedigreeFunction, Age, NewBMI_Underweight,
+        user_input = [float(Pregnancies), float(Glucose), float(BloodPressure), float(SkinThickness), float(Insulin),
+                     float(BMI), float(DiabetesPedigreeFunction), float(Age), NewBMI_Underweight,
                      NewBMI_Overweight, NewBMI_Obesity_1, NewBMI_Obesity_2, 
                      NewBMI_Obesity_3, NewInsulinScore_Normal, NewGlucose_Low,
                      NewGlucose_Normal, NewGlucose_Overweight, NewGlucose_Secret]
         
-        user_input = [float(x) for x in user_input]
         prediction = diabetes_model.predict([user_input])
         
         diabetes_result = "The person has diabetes" if prediction[0] == 1 else "The person does not have diabetes"
@@ -205,8 +204,7 @@ if selected == 'Heart Disease Prediction':
     heart_disease_result = ""
     
     if st.button("Heart Disease Test Result"):
-        user_input = [age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]
-        user_input = [float(x) for x in user_input]
+        user_input = [float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg), float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]
         prediction = heart_disease_model.predict([user_input])
         
         heart_disease_result = "This person has heart disease" if prediction[0] == 1 else "This person does not have heart disease"
@@ -277,10 +275,9 @@ if selected == 'Kidney Disease Prediction':
     kidney_disease_result = ""
     
     if st.button("Kidney Disease Test Result"):
-        user_input = [age, blood_pressure, specific_gravity, albumin, sugar, red_blood_cells, 
-                     pus_cell, serum_creatinine, blood_urea, hemoglobin, diabetes_mellitus, 
-                     coronary_artery_disease, appetite, pedal_edema, anemia]
-        user_input = [float(x) for x in user_input]
+        user_input = [float(age), float(blood_pressure), float(specific_gravity), float(albumin), float(sugar), float(red_blood_cells), 
+                     float(pus_cell), float(serum_creatinine), float(blood_urea), float(hemoglobin), float(diabetes_mellitus), 
+                     float(coronary_artery_disease), float(appetite), float(pedal_edema), float(anemia)]
         prediction = kidney_disease_model.predict([user_input])
         
         kidney_disease_result = "This person has kidney disease" if prediction[0] == 1 else "This person does not have kidney disease"
